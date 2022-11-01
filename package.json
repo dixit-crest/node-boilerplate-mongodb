@@ -1,0 +1,28 @@
+{
+  "name": "boilerplate-mongodb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "dev": "nodemon ./index.js",
+    "deploy": "git pull && npm install && npx sequelize-cli db:migrate && pm2 stop index.js && pm2 start index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "deep-email-validator": "^0.1.21",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "joi": "^17.6.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.7.0",
+    "nodemailer": "^6.8.0",
+    "nodemon": "^2.0.20",
+    "winston": "^3.8.2"
+  }
+}
