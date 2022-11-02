@@ -65,6 +65,33 @@ exports.getUsersNotes = async (req, res, next) => {
 /**
  * method : `GET`
  * 
+ * url : `BACKEND_BASE_URL/api/v1/notes/:id`
+ * 
+ * Gives note with id passed in params
+ */
+exports.getUsersNote = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+
+    const note = await Models.Note.findOne(
+      { _id: id },
+    );
+
+    res.status(200).json({
+      data: note,
+      code: 200,
+      message: RECORDS_FOUND,
+    });
+  } catch (error) {
+    // logger.error("Whooops! This broke with error: ", error);
+    console.log(error);
+    return res.status(500).json(sendResponse(null, 500, SERVER_ERROR));
+  }
+};
+
+/**
+ * method : `GET`
+ * 
  * url : `BACKEND_BASE_URL/api/v1/notes/all`
  * 
  * Gives all notes from all users
